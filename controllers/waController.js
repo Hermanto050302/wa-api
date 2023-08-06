@@ -30,13 +30,6 @@ const api = async (req, res) => {
     const pesan = req.query.pesan || req.body.pesan;
     const token = req.query.token || req.body.token;
 
-    if (token !== "oIoZc5qdHr5lVlzfeg30wsPd5sLiJcfS0Ic2zoyjJqyvepUjUQwXJrJVObEb8h5c") {
-        return res.status(400).json({
-            status: "failed",
-            pesan: "Token tidak valid"
-        });
-    }
-
     if (!nohp || !pesan) {
         return res.status(400).json({
             status: "failed",
