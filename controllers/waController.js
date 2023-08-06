@@ -14,10 +14,9 @@ const rl = readline.createInterface({
 });
 
 
+
 client.on('qr', (qr) => {
-    qrcode.generate(qr, {
-        small: true
-    });
+    console.log('QR RECEIVED', qr);
 });
 
 client.on('ready', () => {
@@ -29,10 +28,14 @@ client.initialize();
 const api = async (req, res) => {
     let nohp = req.query.nohp || req.body.nohp;
     const pesan = req.query.pesan || req.body.pesan;
-    return res.status(400).json({
-        status: "failed",
-        pesan: "Token tidak valid"
-    });
+    const token = req.query.token || req.body.token;
+
+    if (token !== "oIoZc5qdHr5lVlzfeg30wsPd5sLiJcfS0Ic2zoyjJqyvepUjUQwXJrJVObEb8h5c") {
+        return res.status(400).json({
+            status: "failed",
+            pesan: "Token tidak valid"
+        });
+    }
 
     if (!nohp || !pesan) {
         return res.status(400).json({
