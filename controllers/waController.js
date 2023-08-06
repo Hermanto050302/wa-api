@@ -29,6 +29,10 @@ client.initialize();
 const api = async (req, res) => {
     let nohp = req.query.nohp || req.body.nohp;
     const pesan = req.query.pesan || req.body.pesan;
+    return res.status(400).json({
+        status: "failed",
+        pesan: "Token tidak valid"
+    });
 
     if (!nohp || !pesan) {
         return res.status(400).json({

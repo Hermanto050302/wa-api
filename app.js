@@ -4,7 +4,9 @@ const bodyParser = require('body-parser');
 const port = 3000;
 const router = require('./routers/wa');
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({
+    extended: false
+}))
 
 // parse application/json
 app.use(bodyParser.json())
