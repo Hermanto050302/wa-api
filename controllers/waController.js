@@ -28,7 +28,6 @@ client.initialize();
 const api = async (req, res) => {
     let nohp = req.query.nohp || req.body.nohp;
     const pesan = req.query.pesan || req.body.pesan;
-    const token = req.query.token || req.body.token;
 
     if (!nohp || !pesan) {
         return res.status(400).json({
